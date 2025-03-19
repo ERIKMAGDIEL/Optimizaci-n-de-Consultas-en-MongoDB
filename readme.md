@@ -30,14 +30,14 @@ Se utilizó una colección `products` con los siguientes campos:
 - `fecha`: Fecha de registro (Date).
 
 ## 2. Consultas sin Índices
-### 5. Análisis
+### 2.1 Análisis
 | Consulta | Tiempo (ms) |
 |----------|------------|
 | Consulta con filtros y ordenamiento|  45 |
-| /Consulta con agregación para calcular el precio promedio |  28  |
+| Consulta con agregación para calcular el precio promedio |  28  |
 | Agregación por stock  |  71  |
 
-### 2.1 Resultados sin idices
+### 2.2 Resultados sin idices
 consulta 1.
 ![get](/src/assets/consulta%201.png)
 
@@ -71,9 +71,11 @@ Creación de index Compass
 
 
 consulta 1.
+El índice incluye todos los campos solicitados en la proyección y cumple con los filtros, MongoDB solo necesita leer el índice, y por eso no hay documentos examinados.
 ![get](/src/assets/consulta1Index.png)
 
 Consulta 2.
+Si ha creado un índice compuesto como categoria_precio_index, MongoDB puede usarlo para filtrar y ordenar, sin necesidad de leer los documentos y de esa forma es muy eficiente.
 ![get](/src/assets/consulta2Index.png)
 
 Consulta 3.
@@ -82,4 +84,4 @@ Consulta 3.
 
 
 ## 6. Conclusión
-El uso adecuado de índices en MongoDB mejora la eficiencia de las consultas, pero debe evaluarse su impacto en la inserción de datos.
+Los índices en MongoDB son cruciales para mejorar el rendimiento de las consultas, reduciendo significativamente el tiempo de ejecución y minimizando el escaneo de documentos. Permiten optimizar las consultas frecuentes y agilizar las operaciones de agregación, aunque no siempre eliminan su complejidad. Es fundamental crear índices para las consultas más comunes, pero con moderación, ya que un exceso de índices puede afectar el rendimiento de las operaciones de escritura. Herramientas como explain() son útiles para ajustar y verificar el uso eficiente de los índices.
