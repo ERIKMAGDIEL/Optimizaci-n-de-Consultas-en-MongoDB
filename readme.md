@@ -63,7 +63,7 @@ Creación de index Compass
 
 ## 4. Consultas con Índices
 ### 5. Análisis
-|| Consulta | Tiempo (ms) |
+| Consulta | Tiempo (ms) |
 |----------|------------|
 | Consulta con filtros y ordenamiento|  1 |
 | /Consulta con agregación para calcular el precio promedio |  2  |
@@ -78,8 +78,6 @@ Consulta 2.
 
 Consulta 3.
 ![get](/src/assets/consulta3Index.png)
-
-
 
 
 
